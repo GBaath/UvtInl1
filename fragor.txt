@@ -1,0 +1,22 @@
+1. git pull applicerar fetchade commits från ett online repository och försöker applicera på nuvarande git directory
+git push laddar upp cimmotade ändringar på lokala repot till remote.
+2. git log används för att kolla commithistoriken, 
+git status kollar vilka ändringar i lokala report som är modifierade sedan föregående commit.
+3. en git branch är enförgrening av commithistoriken som låter en jobba i ett separat flöde oberoende av commit på andra brancher,
+används för exempelvis när man vill utveckla nya features utan att riskera att saker går sönder i mainbranchen.
+4. checkout går temporärt tillbaka till en tidigare commit, men sitter då inte på en branch. restore replacear en fil i nuvarande branchen från en äldre commit,
+eller kan ångra staging av en  opushad fil.
+git reset används för att helt ångra commits, git restore används för att länga på en ny commit i historiken som revertar de ändringar som skett i den förra.
+exempl: git add av misstag git restore <file>, git commit av misstag git reset (--soft/hard/mixed beroende på om ändringar ska vara kvar) <file>
+generellt funkar det flesta git commandon på staged filer eller på gammla commits beroende på vilka argument man skickar, exempelvis kan restore funka på både staged filer eller gammla commits.
+
+going for VG iguess, always do your best B)
+
+5. git rebase används för att lägga commits på en branch ovanpå en annan, exempelvis om en featurebranch behöver nya changes från main, blir det snyggare, linjär historik av att rebasea, men skriver om historiken så det kan strula om ngn annan branch har mergeat feature branchen.
+merge är bättre för att sätta ihop changes från branched med olika features, skriver inte om histriken
+vanligt att rebasea feature branchen från main övertid och när feature är klar så mergeas det till main
+6.https://github.com/GBaath/MergeRebaseExample tror det går att se i historiken hur man kan vrida och vända
+i exempel så har feature 1 ändringar och mergear från main och feature 2, och feature 2 rebasear från main
+
+för att summera så vill man göra en rebase när man vill ha ren historik på typ en feature branch, nackdelen är att den kan strula ifall flera använder den branchen.
+merge används för att hämta alla ny changes och applicera på den nuvarande branchen. non-destructive historik, men kan ge supermycketclutter ifall man är många som collaborerar.
