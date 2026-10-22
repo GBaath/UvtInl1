@@ -76,9 +76,11 @@ public class Guesser {
 
         if (response.equalsIgnoreCase("t") || response.equalsIgnoreCase("f")) {
           return response;
+        } else {
+          System.out.println("Invalid response. t/f");
         }
       } catch (Exception e) {
-        System.out.println("Invalid response. t/f");
+        System.out.println(e.getMessage());
       }
     }
   }
